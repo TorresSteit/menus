@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Menu List</h1>
+    <ul>
+        <li th:each="menu : ${menus}">
+            <div>
+                <strong th:text="${menu.title}">Title</strong><br>
+                Price: <span th:text="${menu.price}">Price</span> |
+                Weight: <span th:text="${menu.weight}">Weight</span> |
+                Discount: <span th:text="${menu.discount}">Discount</span>
+            </div>
+        </li>
+    </ul>
+
+    <h2>Add New Menu</h2>
+    <form action="#" th:action="@{/create}" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" required>
+
+        <label for="discount">Discount:</label>
+        <input type="checkbox" id="discount" name="discount">
+
+        <button type="submit">Add Menu</button>
+    </form>
+</div>
+</body>
+</html>
+
+
